@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>Chat | AwesomeChat</title>
+  <link rel='stylesheet' href='/css/styles.css'>
+</head>
+<body class='chat'>
+
+<div class='chat__sidebar'>
+  <h3>Users</h3>
+  <div id='users'></div>
+</div>
+
+<div class='chat__main'>
+  <ol class='chat__messages' id='messages'></ol>
+
+  <div class='chat__footer'>
+    <form id='message-form' action>
+      <input name='message' type='text' placeholder='Say something' autofocus autocomplete='off' />
+      <button>Send</button>
+    </form>
+  </div>
+
+</div>
+
+<script id='message-template' type='type/template'>
+  <li class='message'>
+    <div class='message__title'>
+      <h4>{{ from }}</h4>
+      <span>{{ createdAt }}</span>
+    </div>
+    <div class='message__body'>
+      <p>{{ text }}</p>
+    </div>
+</script>
+
+<script src='/socket.io/socket.io.js'></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<script src='/js/mustache.js'></script>
+<script src='/js/chat.js'></script>
+</body>
+</html>
