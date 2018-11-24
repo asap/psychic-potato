@@ -5,8 +5,18 @@
   <meta charset="utf-8">
 </head>
 <body>
-<p>I knew you'd do that</p>
+
+<h1>Welcome to my chat app</h1>
+
+<ol id='messages'></ol>
+
+<form id='message-form' action>
+  <input name='message' type='text' placeholder='Say something' />
+  <button>Send</button>
+</form>
+
 <script src='/socket.io/socket.io.js'></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src='/js/index.js'></script>
 </body>
 </html>

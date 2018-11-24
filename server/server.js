@@ -26,13 +26,14 @@ io.on('connection', (socket) => {
     generateMessage('Admin', 'A new user joined'),
   );
   
-  socket.on('createMessage', (message) => {
+  socket.on('createMessage', (message, callback) => {
     console.log('message created', message);
     const {
       from,
       text,
     } = message;
     io.emit('newMessage', generateMessage(from, text));
+    callback('Message Recieved!');
   });
 
   socket.on('disconnect', () => {
