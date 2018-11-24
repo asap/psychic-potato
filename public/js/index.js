@@ -19,10 +19,12 @@ socket.on('newMessage', function (message) {
 jQuery('#message-form').on('submit', function (e) {
   e.preventDefault();
 
+  var $messageTextBox = jQuery('[name=message]');
+
   socket.emit('createMessage', {
     from: 'user',
-    text: jQuery('[name=message]').val(),
-  }, function (data) {
-    console.log('gotcha', data);
+    text: $messageTextBox.val(),
+  }, function () {
+    $messageTextBox.val('');
   });
 });

@@ -33,7 +33,7 @@ io.on('connection', (socket) => {
       text,
     } = message;
     io.emit('newMessage', generateMessage(from, text));
-    callback('Message Recieved!');
+    callback();
   });
 
   socket.on('disconnect', () => {
