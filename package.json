@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/asap/psychic-potato#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "socket.io": "^2.1.1"
   }
 }
