@@ -49,12 +49,19 @@ io.on('connection', (socket) => {
   });
   
   socket.on('createMessage', (message, callback) => {
-    console.log('message created', message);
+    const user = users.getUser(socket.id);
+
     const {
       from,
       text,
     } = message;
-    io.emit('newMessage', generateMessage(from, text));
+
+    if (user && isRealString(text)) {
+      socket.broadcast
+        .to(user.room)
+        .emit('newMessage', generateMessage(user.name, text));
+    }
+
     callback();
   });
 
